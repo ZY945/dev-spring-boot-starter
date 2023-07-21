@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.zy945</groupId>
+    <artifactId>dev-spring-boot-starter</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>dev-spring-boot-starter</name>
+    <description>个人开发者工具</description>
+    <url>https://github.com/ZY945</url>
+    <modules>
+        <module>dingTalk-spring-boot-starter</module>
+        <module>influxDB-spring-boot-starter</module>
+        <module>util-spring-boot-starter</module>
+        <module>file-spring-boot-starter</module>
+    </modules>
+    <properties>
+        <project.version>0.0.1-SNAPSHOT</project.version>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot.version>3.1.0</spring-boot.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--dingtalk通知-->
+        <dingtalk.version>1.3.23</dingtalk.version>
+        <alibaba-dingtalk-service-sdk.version>2.0.0</alibaba-dingtalk-service-sdk.version>
+        <!--influx-->
+        <influxdb-client.version>6.9.0</influxdb-client.version>
+        <!--utils-->
+        <json.version>20220320</json.version>
+    </properties>
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot 的依赖项管理,没有继承属性和插件-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--        通知        -->
+            <!--钉钉机器人-->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dingtalk</artifactId>
+                <version>${dingtalk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+                <version>${alibaba-dingtalk-service-sdk.version}</version>
+            </dependency>
+            <!-- 数据库 -->
+            <!--时序数据库-->
+            <dependency>
+                <groupId>com.influxdb</groupId>
+                <artifactId>influxdb-client-java</artifactId>
+                <version>${influxdb-client.version}</version>
+            </dependency>
+            <!--https://github.com/influxdata/influxdb-client-java/tree/master/flux-dsl#flux-dsl-->
+            <!--https://influxdata.github.io/influxdb-client-java/flux-dsl/apidocs/index.html-->
+            <dependency>
+                <groupId>com.influxdb</groupId>
+                <artifactId>flux-dsl</artifactId>
+                <version>${influxdb-client.version}</version>
+            </dependency>
+
+            <!--utils-->
+            <!-- 原生json -->
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${json.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

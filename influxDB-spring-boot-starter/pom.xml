@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.zy945</groupId>
+        <artifactId>dev-spring-boot-starter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>io.github.ZY945.db</groupId>
+    <artifactId>influxDB-spring-boot-starter</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!--spring-boot-configuration-processor 的作用是编译时生成 spring-configuration-metadata.json ，
+        此文件主要给IDE使用。如当配置此jar相关配置属性在 application.yml ，
+        你可以用ctlr+鼠标左键点击属性名，IDE会跳转到你配置此属性的类中。-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!--https://central.sonatype.com/artifact/com.influxdb/influxdb-client-java/6.9.0-->
+        <!--https://github.com/influxdata/influxdb-client-java 有案例-->
+        <!--https://influxdata.github.io/influxdb-client-java/influxdb-client-java/apidocs/index.html-->
+        <dependency>
+            <groupId>com.influxdb</groupId>
+            <artifactId>influxdb-client-java</artifactId>
+            <!--            <exclusions>-->
+            <!--                &lt;!&ndash;该包的TOPOJO在influx2.7.0无法正常使用&ndash;&gt;-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.influxdb</groupId>-->
+            <!--                    <artifactId>influxdb-client-core</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
+        </dependency>
+        <!--        &lt;!&ndash;TODO 本地拉去代码修改的,等官方更新&ndash;&gt;-->
+        <!--        &lt;!&ndash;TODO 部署时需改回去,所以使用了其他方法，自己封装&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.influxdb</groupId>-->
+        <!--            <artifactId>influxdb-client-core</artifactId>-->
+        <!--            <version>6.10.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+        <!--https://github.com/influxdata/influxdb-client-java/tree/master/flux-dsl#flux-dsl-->
+        <!--https://influxdata.github.io/influxdb-client-java/flux-dsl/apidocs/index.html-->
+        <dependency>
+            <groupId>com.influxdb</groupId>
+            <artifactId>flux-dsl</artifactId>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>io.github.betacatcode</groupId>-->
+        <!--            <artifactId>spring-boot-starter-influxdb</artifactId>-->
+        <!--        </dependency>-->
+
+        <!-- Spring封装的InfluxDB -->
+        <!--        <dependency>-->
+        <!--            <groupId>plus.ojbk</groupId>-->
+        <!--            <artifactId>influxdb-spring-boot-starter</artifactId>-->
+        <!--            <version>1.0.2</version>-->
+        <!--        </dependency>-->
+    </dependencies>
+</project>
