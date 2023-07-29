@@ -121,7 +121,6 @@ public class InfluxDBTemplate {
      */
     public Long countByRange(String measurement, Instant start, Instant stop) {
         InfluxBO influxBO = new InfluxBO();
-        System.out.println(start);
         Flux bucket = Flux.from("bucket")
                 .range(start, stop)
                 .filter(Restrictions.and(
